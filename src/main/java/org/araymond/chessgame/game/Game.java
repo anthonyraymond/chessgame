@@ -64,6 +64,9 @@ public class Game {
             Square origin = board.getSquareByName(originName);
             Square dest = board.getSquareByName(destName);
 
+            if (!origin.getPiece().belongsTo(player)) {
+                throw new ChessMoveException("Cannot move a piece that does not belong to the player.", new IllegalArgumentException());
+            }
 
             if (origin.isEmpty()) {
                 throw new ChessMoveException("Cannot move from an empty Square", new IllegalArgumentException());

@@ -48,10 +48,28 @@ public class GameTest {
         game.startGame();
 
         try {
-            game.movePiece(null, "a2", "b2");
+            game.movePiece(null, "a2", "a3");
             fail();
         } catch (ChessMoveException e) {
             assertThat(e.getMessage()).isNotNull();
+        } finally {
+            game.endGame();
+        }
+    }
+
+    @Test
+    public void shouldNotMovePiecePlayerBelongsToAnotherPlayer() {
+        Game game = new Game(playerSet);
+        game.startGame();
+
+        game.movePiece(playerSet.getWhitePlayer(), "b2", "b4");
+        game.movePiece(playerSet.getBlackPlayer(), "b7", "b5");
+        try {
+            game.movePiece(playerSet.getWhitePlayer(), "b8", "c6");
+            fail();
+        } catch (ChessMoveException e) {
+            assertThat(e.getMessage()).isNotNull();
+            assertThat(e.getMessage().contains("does not belong to"));
         } finally {
             game.endGame();
         }

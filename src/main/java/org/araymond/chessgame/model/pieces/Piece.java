@@ -142,4 +142,8 @@ public final class Piece extends Observable {
         return availablePathToDest.get(0);
     }
 
+    public boolean belongsTo(Player player) {
+        return this.player.equals(player);
+    }
+
 }

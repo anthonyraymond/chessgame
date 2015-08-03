@@ -126,7 +126,7 @@ public final class Square implements Observer {
         if (this.getPiece().getPlayer() == null || square2.getPiece().getPlayer() == null) {
             throw new ChessModelIntegrityException("Cannot compare two piece's owner if one of piece's owner are null", new IllegalArgumentException());
         }
-        return this.getPiece().getPlayer().equals(square2.getPiece().getPlayer());
+        return this.getPiece().belongsTo(square2.getPiece().getPlayer());
     }
 
     @Override

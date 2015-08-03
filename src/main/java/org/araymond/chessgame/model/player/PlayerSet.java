@@ -10,10 +10,10 @@ public class PlayerSet {
     private final Player blackPlayer;
 
     public PlayerSet(Player whitePlayer, Player blackPlayer) {
-        if (blackPlayer == null || blackPlayer.getType() == null || blackPlayer.getType() != PlayerType.BLACK) {
-            throw new ChessModelIntegrityException("BlackPlayer or player type was null or type was not BLACK", new IllegalArgumentException());
+        if (blackPlayer == null || !blackPlayer.isBlack()) {
+            throw new ChessModelIntegrityException("BlackPlayer  was null or type was not BLACK", new IllegalArgumentException());
         }
-        if (whitePlayer == null || whitePlayer.getType() == null || whitePlayer.getType() != PlayerType.WHITE) {
+        if (whitePlayer == null || !whitePlayer.isWhite()) {
             throw new ChessModelIntegrityException("WhitePlayer or player type was null or type was not WHITE", new IllegalArgumentException());
         }
 

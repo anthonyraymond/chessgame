@@ -44,13 +44,13 @@ public class PlayerTurnTest {
 
     @Test(timeout = 1000)
     public void shouldSwitchPlayerAfterTurnTimeout() throws InterruptedException {
-        PlayerTurn playerTurn = new PlayerTurn(playerSet, 10);
+        PlayerTurn playerTurn = new PlayerTurn(playerSet, 50);
         playerTurn.start();
 
         assertThat(playerTurn.getCurrentPlayer()).isEqualTo(playerSet.getWhitePlayer());
-        Thread.sleep(15);
+        Thread.sleep(70);
         assertThat(playerTurn.getCurrentPlayer()).isEqualTo(playerSet.getBlackPlayer());
-        Thread.sleep(15);
+        Thread.sleep(70);
         assertThat(playerTurn.getCurrentPlayer()).isEqualTo(playerSet.getWhitePlayer());
         playerTurn.nextTurn();
         assertThat(playerTurn.getCurrentPlayer()).isEqualTo(playerSet.getBlackPlayer());
@@ -58,7 +58,7 @@ public class PlayerTurnTest {
         assertThat(playerTurn.getCurrentPlayer()).isEqualTo(playerSet.getWhitePlayer());
         playerTurn.nextTurn();
         assertThat(playerTurn.getCurrentPlayer()).isEqualTo(playerSet.getBlackPlayer());
-        Thread.sleep(15);
+        Thread.sleep(70);
         assertThat(playerTurn.getCurrentPlayer()).isEqualTo(playerSet.getWhitePlayer());
     }
 

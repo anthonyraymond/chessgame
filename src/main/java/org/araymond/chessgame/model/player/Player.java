@@ -19,12 +19,20 @@ public final class Player {
         this.type = playerType;
     }
 
-    public PlayerType getType() {
+    /*public PlayerType getType() {
         return this.type;
-    }
+    }*/
 
     public String getName() {
         return this.name;
+    }
+
+    public boolean isWhite() {
+        return this.type == PlayerType.WHITE;
+    }
+
+    public boolean isBlack() {
+        return this.type == PlayerType.BLACK;
     }
 
 }

@@ -31,10 +31,10 @@ public final class PieceFactory {
 
     public static void putPawn(Player player, Square square) {
         if (player == null) {
-            throw new ChessModelIntegrityException("Cannot plant a Pawn with a null Square.", new NullPointerException());
+            throw new ChessModelIntegrityException("Cannot plant a Pawn with a null Player.", new NullPointerException());
         }
         if (square == null) {
-            throw new ChessModelIntegrityException("Cannot plant a Pawn with a null Player.", new NullPointerException());
+            throw new ChessModelIntegrityException("Cannot plant a Pawn with a null Square.", new NullPointerException());
         }
         new Piece(player, PieceType.PAWN, square, POINT_PAWN, Arrays.asList(moveValidatorPawn, moveValidatorPawnFirstMove));
     }
@@ -42,50 +42,50 @@ public final class PieceFactory {
 
     public static void putKnight(Player player, Square square) {
         if (player == null) {
-            throw new ChessModelIntegrityException("Cannot plant a Knight with a null Square.", new NullPointerException());
+            throw new ChessModelIntegrityException("Cannot plant a Knight with a null Player.", new NullPointerException());
         }
         if (square == null) {
-            throw new ChessModelIntegrityException("Cannot plant a Knight with a null Player.", new NullPointerException());
+            throw new ChessModelIntegrityException("Cannot plant a Knight with a null Square.", new NullPointerException());
         }
         new Piece(player, PieceType.KNIGHT, square, POINT_KNIGHT, Collections.singletonList(moveValidatorKnight));
     }
 
     public static void putBishop(Player player, Square square) {
         if (player == null) {
-            throw new ChessModelIntegrityException("Cannot plant a Bishop with a null Square.", new NullPointerException());
+            throw new ChessModelIntegrityException("Cannot plant a Bishop with a null Player.", new NullPointerException());
         }
         if (square == null) {
-            throw new ChessModelIntegrityException("Cannot plant a Bishop with a null Player.", new NullPointerException());
+            throw new ChessModelIntegrityException("Cannot plant a Bishop with a null Square.", new NullPointerException());
         }
         new Piece(player, PieceType.BISHOP, square, POINT_BISHOP, Collections.singletonList(moveValidatorDiagonal));
     }
 
     public static void putRook(Player player, Square square) {
         if (player == null) {
-            throw new ChessModelIntegrityException("Cannot plant a Rook with a null Square.", new NullPointerException());
+            throw new ChessModelIntegrityException("Cannot plant a Rook with a null Player.", new NullPointerException());
         }
         if (square == null) {
-            throw new ChessModelIntegrityException("Cannot plant a Rook with a null Player.", new NullPointerException());
+            throw new ChessModelIntegrityException("Cannot plant a Rook with a null Square.", new NullPointerException());
         }
         new Piece(player, PieceType.ROOK, square, POINT_ROOK, Collections.singletonList(moveValidatorLine));
     }
 
     public static void putQueen(Player player, Square square) {
         if (player == null) {
-            throw new ChessModelIntegrityException("Cannot plant a Queen with a null Square.", new NullPointerException());
+            throw new ChessModelIntegrityException("Cannot plant a Queen with a null Player.", new NullPointerException());
         }
         if (square == null) {
-            throw new ChessModelIntegrityException("Cannot plant a Queen with a null Player.", new NullPointerException());
+            throw new ChessModelIntegrityException("Cannot plant a Queen with a null Square.", new NullPointerException());
         }
         new Piece(player, PieceType.QUEEN, square, POINT_QUEEN, Arrays.asList(moveValidatorLine, moveValidatorDiagonal));
     }
 
     public static void putKing(Player player, Square square) {
         if (player == null) {
-            throw new ChessModelIntegrityException("Cannot plant a King with a null Square.", new NullPointerException());
+            throw new ChessModelIntegrityException("Cannot plant a King with a null Player.", new NullPointerException());
         }
         if (square == null) {
-            throw new ChessModelIntegrityException("Cannot plant a King with a null Player.", new NullPointerException());
+            throw new ChessModelIntegrityException("Cannot plant a King with a null Square.", new NullPointerException());
         }
         new Piece(player, PieceType.KING, square, POINT_KING, Collections.singletonList(moveValidatorKing));
     }

@@ -4,7 +4,6 @@ import org.araymond.chessgame.ChessGameTestUtils;
 import org.araymond.chessgame.exceptions.ChessModelIntegrityException;
 import org.araymond.chessgame.model.moves.Direction;
 import org.araymond.chessgame.model.pieces.PieceType;
-import org.araymond.chessgame.model.player.PlayerType;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -150,17 +149,17 @@ public class BoardFactoryTest {
     @Test
     public void shouldPlantPieceForCorrectPlayer() {
         for (char i = 'a'; i <= 'h'; i++) {
-            assertThat(board.getSquareByName(i + "1").getPiece().getPlayer().getType()).isEqualTo(PlayerType.WHITE);
+            assertThat(board.getSquareByName(i + "1").getPiece().getPlayer().isWhite()).isTrue();
         }
         for (char i = 'a'; i <= 'h'; i++) {
-            assertThat(board.getSquareByName(i + "2").getPiece().getPlayer().getType()).isEqualTo(PlayerType.WHITE);
+            assertThat(board.getSquareByName(i + "2").getPiece().getPlayer().isWhite()).isTrue();
         }
 
         for (char i = 'a'; i <= 'h'; i++) {
-            assertThat(board.getSquareByName(i + "7").getPiece().getPlayer().getType()).isEqualTo(PlayerType.BLACK);
+            assertThat(board.getSquareByName(i + "7").getPiece().getPlayer().isBlack()).isTrue();
         }
         for (char i = 'a'; i <= 'h'; i++) {
-            assertThat(board.getSquareByName(i + "8").getPiece().getPlayer().getType()).isEqualTo(PlayerType.BLACK);
+            assertThat(board.getSquareByName(i + "8").getPiece().getPlayer().isBlack()).isTrue();
         }
     }
 

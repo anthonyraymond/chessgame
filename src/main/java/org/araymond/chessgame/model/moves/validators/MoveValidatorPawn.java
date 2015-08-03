@@ -2,7 +2,6 @@ package org.araymond.chessgame.model.moves.validators;
 
 import org.araymond.chessgame.model.moves.Direction;
 import org.araymond.chessgame.model.player.Player;
-import org.araymond.chessgame.model.player.PlayerType;
 
 /**
  * Created by Anthony on 21/06/2015.
@@ -22,7 +21,7 @@ public final class MoveValidatorPawn extends MoveValidator {
 
     @Override
     protected Direction[][] getAllowedDisplacementForPiece(Player player) {
-        if (player.getType() == PlayerType.WHITE) {
+        if (player.isWhite()) {
             return this.allowedWhiteMove;
         }
         return allowedBlackMove;
@@ -31,7 +30,7 @@ public final class MoveValidatorPawn extends MoveValidator {
 
     @Override
     protected boolean isPathValidForCapture(Player player, Direction[] path) {
-        if (player.getType() == PlayerType.WHITE) {
+        if (player.isWhite()) {
             return (path.length == 1 && (path[0] == Direction.NORTHEAST || path[0] == Direction.NORTHWEST));
         }
         //black player case
@@ -40,7 +39,7 @@ public final class MoveValidatorPawn extends MoveValidator {
 
     @Override
     protected boolean isPathValidForMove(Player player, Direction[] path) {
-        if (player.getType() == PlayerType.WHITE) {
+        if (player.isWhite()) {
             return (path.length == 1 && path[0] == Direction.NORTH);
         }
         //black player case

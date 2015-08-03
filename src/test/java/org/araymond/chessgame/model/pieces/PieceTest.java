@@ -189,4 +189,18 @@ public class PieceTest {
         assertThat(piece.getSquare()).isEqualTo(dest);
         assertThat(dest.getPiece()).isEqualTo(piece);
     }
+
+    @Test
+    public void shouldNotBelongToPlayer() {
+        Board board = new SpecialBoardBuilder().withPiece("a2", PieceType.PAWN, white).build();
+        assertThat(board.getSquareByName("a2").getPiece().belongsTo(black)).isFalse();
+    }
+
+    @Test
+    public void shouldBelongToPlayer() {
+        Board board = new SpecialBoardBuilder().withPiece("a2", PieceType.PAWN, white).build();
+        assertThat(board.getSquareByName("a2").getPiece().belongsTo(white)).isTrue();
+
+    }
+
 }

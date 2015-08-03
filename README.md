@@ -15,6 +15,7 @@
 - [ ] Add a logger.
 
 ### On deck :
+- [ ] Remove the ability for a pawn to execute a "firstMove" action after his first move.
 - [ ] Game should end when a player is un check-mate state.
 - [ ] Missing a layer in game, move should be handled by player instead of game directly.
 - [ ] Implements special moves for king (Castling).

@@ -15,7 +15,7 @@ public class PlayerTest {
     public void shouldBuildWithNameAntType() {
         Player player = new Player("John", PlayerType.BLACK);
         assertThat(player.getName()).isEqualTo("John");
-        assertThat(player.getType()).isEqualTo(PlayerType.BLACK);
+        assertThat(player.isBlack()).isTrue();
     }
 
     @Test
@@ -46,6 +46,26 @@ public class PlayerTest {
         } catch (ChessModelIntegrityException e) {
             assertThat(e.getMessage()).isNotNull();
         }
+    }
+
+    @Test
+    public void shouldNotBeWhite() {
+        assertThat(new Player("John", PlayerType.BLACK).isWhite()).isFalse();
+    }
+
+    @Test
+    public void shouldBeWhite() {
+        assertThat(new Player("John", PlayerType.WHITE).isWhite()).isTrue();
+    }
+
+    @Test
+    public void shouldNotBeBlack() {
+        assertThat(new Player("John", PlayerType.WHITE).isBlack()).isFalse();
+    }
+
+    @Test
+    public void shouldBeBlack() {
+        assertThat(new Player("John", PlayerType.BLACK).isBlack()).isTrue();
     }
 
 
